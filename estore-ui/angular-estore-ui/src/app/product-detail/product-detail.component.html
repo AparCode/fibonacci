@@ -1,0 +1,110 @@
+<div class="container-flex" *ngIf="product">
+  <img src="assets/images/{{product.image}}"/>
+  <h2>{{product.name}}</h2>
+  <ng-template #tipContent let-message="message">{{message}}</ng-template>
+  <div *ngIf="username == adminName">
+    <form #productForm="ngForm">
+      <div class="form-group">
+        <label for="id">id: {{product.id}}</label>
+      </div>
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" id="name" required [(ngModel)]="product.name" name="name"
+        #name="ngModel" ngModel [ngbTooltip]="tipContent" placement="bottom" triggers="manual" #tname="ngbTooltip"
+          (blur)="displayToolTipBlur(tname, name, productForm)">
+      </div>  
+
+      <div class="form-group">
+        <label for="brand">Brand</label>
+        <input type="text" class="form-control" id="brand" [(ngModel)]="product.brand" name="brand"
+          #brand="ngModel" ngModel [ngbTooltip]="tipContent" placement="bottom" triggers="manual" #tbrand="ngbTooltip"
+          (blur)="displayToolTipBlur(tbrand, brand, productForm)">
+      </div>
+      <div class="form-group">
+        <label for="caseMaterial">Case Material</label>
+        <input type="text" class="form-control" id="caseMaterial" [(ngModel)]="product.caseMaterial"
+          name="caseMaterial"
+          #caseMaterial="ngModel" ngModel [ngbTooltip]="tipContent" placement="bottom" triggers="manual" #tcaseMaterial="ngbTooltip"
+          (blur)="displayToolTipBlur(tcaseMaterial, caseMaterial, productForm)">
+      </div>
+      <div class="form-group">
+        <label for="caseDiameter">Case Diameter</label>
+        <input type="text" class="form-control" id="caseDiameter" [(ngModel)]="product.caseDiameter"
+          name="caseDiameter"
+          #caseDiameter="ngModel" ngModel [ngbTooltip]="tipContent" placement="bottom" triggers="manual" #tcaseDiameter="ngbTooltip"
+          (blur)="displayToolTipBlur(tcaseDiameter, caseDiameter, productForm)" pattern="[+]?([0-9]+([.][0-9]*)?|[.][0-9]+)">
+      </div>
+      <div class="form-group">
+        <label for="condition">Condition</label>
+        <input type="text" class="form-control" id="condition" [(ngModel)]="product.condition"
+          name="condition"
+          #condition="ngModel" ngModel [ngbTooltip]="tipContent" placement="bottom" triggers="manual" #tcondition="ngbTooltip"
+          (blur)="displayToolTipBlur(tcondition, condition, productForm)">
+      </div>
+      <div class="form-group">
+        <label for="cost">Cost</label>
+        <input type="text" class="form-control" id="cost" required [(ngModel)]="product.cost" name="cost"
+        #cost="ngModel" ngModel [ngbTooltip]="tipContent" placement="bottom" triggers="manual" #tcost="ngbTooltip"
+          (blur)="displayToolTipBlur(tcost, cost, productForm)" pattern="[+]?([0-9]+([.][0-9]*)?|[.][0-9]+)">
+      </div>
+      <div class="form-group">
+        <label for="description">Description</label>
+        <input type="text" class="form-control" id="description" [(ngModel)]="product.description"
+          name="description"
+          #description="ngModel" ngModel [ngbTooltip]="tipContent" placement="bottom" triggers="manual" #tdescription="ngbTooltip"
+          (blur)="displayToolTipBlur(tdescription, description, productForm)">
+      </div>
+      <div class="form-group">
+        <label for="inventoryAmt">Inventory Amount</label>
+        <input type="text" class="form-control" id="inventoryAmt" required [(ngModel)]="product.inventoryAmt"
+          name="inventoryAmt"
+          #inventoryAmt="ngModel" ngModel [ngbTooltip]="tipContent" placement="bottom" triggers="manual" #tinventoryAmt="ngbTooltip"
+          (blur)="displayToolTipBlur(tinventoryAmt, inventoryAmt, productForm)" pattern="(?<![-.])\b[0-9]+\b(?!\.[0-9])">
+      </div>
+      <div class="form-group">
+        <label for="image">Image Path or "null"</label>
+        <input type="text" class="form-control" id="image" required [(ngModel)]="product.image"
+          name="image"
+          #image="ngModel" ngModel [ngbTooltip]="tipContent" placement="bottom" triggers="manual" #timage="ngbTooltip"
+          (blur)="displayToolTipBlur(timage, image, productForm)">
+      </div>
+    </form>
+  </div>
+  <div *ngIf="username != adminName">
+    
+    <form #productform = "ngForm">
+      <div class="form-group">
+        <label for="id">ID: {{product.id}}</label>
+      </div>
+      <div class="form-group">
+        <label for="name">NAME: {{product.name}}</label>
+      </div>
+      <div class="form-group">
+        <label for="brand">BRAND: {{product.brand}} </label>
+      </div>
+      <div class="form-group">
+        <label for="caseMaterial">CASEMATERIAL: {{product.caseMaterial}}</label>
+      </div>
+      <div class="form-group">
+        <label for="caseDiameter">CASEDIAMETER: {{product.caseDiameter}}</label>
+      </div>
+      <div class="form-group">
+        <label for="condition">CONDITION: {{product.condition}}</label>
+      </div>
+      <div class="form-group">
+        <label for="cost">COST: {{product.cost}}</label>
+      </div>
+      <div class="form-group">
+        <label for="description">DESCRIPTION: {{product.description}}</label>
+      </div>
+      <div class="form-group">
+        <label for="inventoryAmt">INVENTORY: {{product.inventoryAmt}}</label>
+      </div>
+  </form>
+  </div>
+  <button class="btn" type="button" (click)="goBack()">go back</button>
+  <button class="btn" [disabled]="formValid == false" *ngIf="username == adminName" type="button"
+    (click)="save()">save</button>
+  <button class="btn" *ngIf="username != empty && username != adminName" type="button" (click)="addToCart()">add to
+    cart</button>
+</div>

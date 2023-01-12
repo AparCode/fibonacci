@@ -1,0 +1,50 @@
+<html>
+<head>
+<style>
+h2 {text-align: center;}
+h3 {text-align: center;}
+</style>
+</head>
+<body>
+
+
+</body>
+</html>
+
+<h2>My Shopping Cart</h2>
+
+<div class="wrapper">
+  <ul class="products">
+    <li *ngFor="let product of currentCart?.items">
+        <div class="prod-info">
+          <a routerLink="/detail/{{product.id}}">
+          <h1 class="noselect" style="color: #141416; font-weight: bold;">{{product.name}}</h1>
+        </a>
+        </div>
+        <div class="prod-info">
+          <button *ngIf="!currentCart?.reservation" type="button" class="button" title="reserve product"
+          (click)="reserveItem(product)">Reserve</button>
+          <button type="button" class="button" title="remove product"
+            (click)="removeProduct(product)">x</button>
+        </div>
+    </li>
+    <div *ngIf="currentCart?.reservation">
+      <h1>Reserved Item:</h1>
+      <li>
+        <div class="prod-info">
+          <a routerLink="/detail/{{currentCart?.reservation?.id}}">
+          <h1 class="noselect" style="color: #141416; font-weight: bold;">{{currentCart?.reservation?.name}}</h1>
+        </a>
+        </div>
+        <div class="prod-info">
+          <button type="button" class="button" title="reserve product" (click)="unReserveItem()">Un-reserve</button>
+        </div>
+      </li>
+   </div>
+    <div *ngIf="!currentCart || (currentCart.items.length == 0 && !currentCart?.reservation)"><p>No Items In Cart.</p></div>
+    <div *ngIf="checkedOut"><p>Thanks! Your Items have been ordered. Any items that could not be ordered will remain in your cart.</p></div>
+  </ul>
+  <div *ngIf="currentCart && (currentCart.items.length != 0 || currentCart?.reservation)">
+    <button type="button" class="button" style="margin-left:2vh" title="reserve product" (click)="checkoutCart()">Checkout</button>
+  </div>
+</div>

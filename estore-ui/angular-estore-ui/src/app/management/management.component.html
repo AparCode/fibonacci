@@ -1,0 +1,39 @@
+<html>
+<head>
+<style>
+h2 {text-align: center;}
+h3 {text-align: center;}
+</style>
+</head>
+<body>
+
+
+</body>
+</html>
+
+<h2 style="color:green">Inventory Management</h2>
+<h3>Go ahead. Add some cool watches to help our store!</h3>
+<br>
+<div>
+  <label for="new-product">Product name: </label>
+  <input id="new-product" #productName />
+
+  <!-- (click) passes input value to add() and then clears the input -->
+  <button type="button" class="add-button" (click)="add(productName.value); productName.value=''">
+    Add product
+  </button>
+</div>
+
+<br>
+<h3>Inventory</h3>
+<br>
+
+<ul class="products">
+  <li *ngFor="let product of products">
+    <a routerLink="/detail/{{product.id}}">
+      <span class="badge">{{product.id}}</span> {{product.name}}
+    </a>
+    <button type="button" class="delete" title="delete product"
+      (click)="delete(product)">x</button>
+  </li>
+</ul>

@@ -1,0 +1,46 @@
+<html>
+<head>
+<style>
+h2 {text-align: center;}
+h3 {text-align: center;}
+div {text-align: center;}
+</style>
+</head>
+<body>
+
+
+</body>
+</html>
+
+<h2>Products</h2>
+<div class="search">
+  <br>
+  <h3>Search for Products:</h3>
+<app-product-search></app-product-search>
+</div>
+
+<br>
+<h3>Product List</h3>
+<div class="wrapper">
+  <ul class="products">
+    <li *ngFor="let product of products">
+      <a routerLink="/detail/{{product.id}}">
+        <img src="assets/images/{{product.image}}"/>
+        <!--<img src="assets/images/{{product.id}}.png"/>-->
+        <div class="prod-info">
+          <h1 class="noselect" style="color: #141416; font-weight: bold; text-shadow: none;">{{product.name}}</h1>
+          <div>
+            <p class="noselect" style="color: #BBBDBC">{{product.brand}}</p>
+            <h2 class="noselect" style="color: #141416">Casing</h2>
+            <div>
+              <p class="noselect"style="color: #535257">Material: {{product.caseMaterial}}</p>
+              <p class="noselect" style="color: #535257">Diameter: {{product.caseDiameter}}</p>
+            </div>
+            <p class="noselect" style="color: #535257">Condition: {{product.condition}}</p>
+          </div>
+        </div>
+      </a>
+    </li>
+  </ul>
+
+</div>

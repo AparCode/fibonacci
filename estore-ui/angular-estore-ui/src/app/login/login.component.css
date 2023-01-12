@@ -1,0 +1,243 @@
+/* Wrapper Components */
+
+.container{
+    width: fit-content;
+}
+
+.flex-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 90vh;
+}
+
+/* End Wrapper */
+/* Background Components */
+
+@keyframes animate {
+    0%{
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+        border-radius: 0;
+    }
+    100%{
+        transform: translateY(-1000px) rotate(720deg);
+        opacity: 0;
+        border-radius: 50%;
+    }
+}
+
+.background {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    background: #ffffff;
+    overflow: hidden;
+}
+.background li {
+    position: absolute;
+    display: block;
+    list-style: none;
+    width: 20px;
+    height: 20px;
+    background: rgba(34, 205, 134, 0.2);
+    animation: animate 27s linear infinite;
+    backdrop-filter: blur(5px);
+}
+
+.background li:nth-child(0) {
+    left: 22%;
+    width: 95px;
+    height: 95px;
+    bottom: -95px;
+    animation-delay: 1s;
+}
+.background li:nth-child(1) {
+    left: 78%;
+    width: 157px;
+    height: 157px;
+    bottom: -157px;
+    animation-delay: 3s;
+}
+.background li:nth-child(2) {
+    left: 24%;
+    width: 108px;
+    height: 108px;
+    bottom: -108px;
+    animation-delay: 10s;
+}
+.background li:nth-child(3) {
+    left: 61%;
+    width: 180px;
+    height: 180px;
+    bottom: -180px;
+    animation-delay: 12s;
+}
+.background li:nth-child(4) {
+    left: 55%;
+    width: 94px;
+    height: 94px;
+    bottom: -94px;
+    animation-delay: 12s;
+}
+.background li:nth-child(5) {
+    left: 71%;
+    width: 170px;
+    height: 170px;
+    bottom: -170px;
+    animation-delay: 8s;
+}
+.background li:nth-child(6) {
+    left: 46%;
+    width: 147px;
+    height: 147px;
+    bottom: -147px;
+    animation-delay: 23s;
+}
+.background li:nth-child(7) {
+    left: 87%;
+    width: 111px;
+    height: 111px;
+    bottom: -111px;
+    animation-delay: 33s;
+}
+.background li:nth-child(8) {
+    left: 51%;
+    width: 85px;
+    height: 85px;
+    bottom: -85px;
+    animation-delay: 9s;
+}
+.background li:nth-child(9) {
+    left: 6%;
+    width: 175px;
+    height: 175px;
+    bottom: -175px;
+    animation-delay: 30s;
+}
+.background li:nth-child(10) {
+    left: 62%;
+    width: 60px;
+    height: 60px;
+    bottom: -60px;
+    animation-delay: 36s;
+}
+.background li:nth-child(11) {
+    left: 19%;
+    width: 84px;
+    height: 84px;
+    bottom: -84px;
+    animation-delay: 26s;
+}
+.background li:nth-child(12) {
+    left: 89%;
+    width: 163px;
+    height: 163px;
+    bottom: -163px;
+    animation-delay: 44s;
+}
+.background li:nth-child(13) {
+    left: 36%;
+    width: 112px;
+    height: 112px;
+    bottom: -112px;
+    animation-delay: 54s;
+}
+.background li:nth-child(14) {
+    left: 5%;
+    width: 113px;
+    height: 113px;
+    bottom: -113px;
+    animation-delay: 33s;
+}
+.background li:nth-child(15) {
+    left: 31%;
+    width: 196px;
+    height: 196px;
+    bottom: -196px;
+    animation-delay: 13s;
+}
+.background li:nth-child(16) {
+    left: 78%;
+    width: 184px;
+    height: 184px;
+    bottom: -184px;
+    animation-delay: 18s;
+}
+.background li:nth-child(17) {
+    left: 36%;
+    width: 90px;
+    height: 90px;
+    bottom: -90px;
+    animation-delay: 84s;
+}
+.background li:nth-child(18) {
+    left: 84%;
+    width: 98px;
+    height: 98px;
+    bottom: -98px;
+    animation-delay: 11s;
+}
+
+/* End Background */
+/* Login Components */
+
+form {
+    padding: 2vh 4vw;
+    background: rgba(245, 245, 245, 0.32);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5.8px);
+    -webkit-backdrop-filter: blur(5.8px);
+    border: 1px solid rgba(245, 245, 245, 0.33);
+}
+
+h1 {
+    margin: 0.5em;
+    color: #22cd86;
+    text-shadow: 0px 0px 18px #22cd86;
+    font-size: 40px;
+}
+
+.alert{
+    color: #fe4a49;
+}
+
+.foot {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    font-size: 14px;
+}
+
+.foot button {
+    background-color: #22cd86;
+    border-color: #22cd86;
+    height: 100%;
+}
+
+.foot a{
+    width:60%;
+    border: 3px #fdb833 solid;
+    border-radius: 5px;
+    font-size: 14px;
+    text-decoration: none;
+    color: #fdb833;
+    font-weight: bold;
+    padding: 5px;
+    transition: 0.27s;
+}
+
+.foot a:hover {
+    color: #fff;
+    background-color: #fdb833;
+    box-shadow: 0px 0px 20px #fdb833;
+}
+
+/* End Login */

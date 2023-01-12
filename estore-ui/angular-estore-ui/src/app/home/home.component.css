@@ -1,0 +1,37 @@
+/* DashboardComponent's private CSS styles */
+
+h2 {
+    text-align: center;
+  }
+
+img{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 25%;
+}
+
+::ng-deep h3 {
+  color: white;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+::ng-deep button:hover{
+  background-color: #F5F5F5;
+}
+
+::ng-deep .carousel-control-prev-icon{
+  background-image: url('/assets/chevron_left.png');
+  background-size: 50px;
+}
+
+::ng-deep .carousel-control-next-icon{
+ background-image: url('/assets/chevron_right.png');
+ background-size: 50px;
+}
+
+.search{
+  margin: auto;
+  width: 25%;
+  text-align: center;
+}

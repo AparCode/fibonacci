@@ -1,0 +1,61 @@
+# dependencies  
+node_modules/
+
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+# compiled output  
+/dist  
+/tmp  
+/out-tsc
+
+### Angular ###
+.angular/
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### VS Code ###
+.vscode/
+!.vscode/settings.json  
+!.vscode/tasks.json  
+!.vscode/launch.json  
+!.vscode/extensions.json
+
+# misc  
+/.sass-cache  
+/connect.lock  
+/coverage  
+/libpeerconnection.log  
+npm-debug.log  
+yarn-error.log  
+testem.log  
+/typings  
+
+# System Files  
+.DS_Store  
+Thumbs.db

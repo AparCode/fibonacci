@@ -1,0 +1,40 @@
+<nav class="navbar sticky-top">
+    <div class="container-flex">
+        <ul ngbNav #nav="ngbNav" class="nav-bars">
+            <li class="nav-header nav-item" ngbNavItem>
+                <a style="color:gainsboro" routerLink="/home">
+                    <img src="favicon.ico" alt="logo"
+                    width = "45"
+                    height = "45" >
+                </a>
+            </li>
+            <li class="srch">
+                <app-product-search></app-product-search>
+            </li>
+            <li ngbNavItem>
+                <a ngbNavLink class="nvg" routerLink="/home">Home</a>
+            </li>
+            <li ngbNavItem>
+                <a ngbNavLink class="nvg" routerLink="/products">Products</a>
+            </li>
+            <li *ngIf="admin == true" class="nav-right" ngbNavItem>
+                <a ngbNavLink class="nvg" routerLink="/management">Management</a>
+            </li>
+            <li *ngIf="admin == true" class="nav-right" ngbNavItem>
+                <a ngbNavLink class="nvg" routerLink="/dashboard">Error</a>
+            </li>
+            <li *ngIf="cart == true" class="nav-right" ngbNavItem>
+                <a ngbNavLink class="nvg" routerLink="/cart">Cart</a>
+            </li>
+            <li *ngIf="userLogin == false" class="nav-right" ngbNavItem>
+                <a ngbNavLink class="nvg" routerLink="/login">Login</a>
+            </li>
+            <li *ngIf="userLogin == true" class="nav-right" ngbNavItem>
+                <a class="nvg" (click)="logout()">Logout</a>
+            </li>
+            <li *ngIf="userLogin == true" class="nav-right" ngbNavItem>
+                <a class="nvg">User: {{username}}</a>
+            </li>
+        </ul>
+    </div>
+</nav>

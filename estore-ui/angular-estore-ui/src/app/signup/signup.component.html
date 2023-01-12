@@ -1,0 +1,58 @@
+<ul class="background">
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
+<div class="container">
+    <div class="flex-container">
+        <ng-template #tipContent let-message="message">{{message}}</ng-template>
+        <form #signUp="ngForm" (ngSubmit)="onSubmit(signUp, t1, t2)">
+            <h1>Signup</h1>
+            <div class="form-group">
+                <label for="username">Username</label><br>
+                <input required type="text" name="username" class="form-control" #username="ngModel" ngModel [ngbTooltip]="tipContent" placement="bottom" triggers="manual" #t1="ngbTooltip" (blur)="displayToolTipBlur(t1, true, 'Invalid Username!', username)">
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label><br>
+                <input required type="text" name="password" class="form-control" #password="ngModel" ngModel [ngbTooltip]="tipContent" placement="bottom" triggers="manual" #t2="ngbTooltip" (blur)="displayToolTipBlur(t2, false, 'Invalid Password!', password)">
+            </div>
+            <pre></pre>
+            <pre></pre>
+            <pre></pre>
+
+            <!--
+            <div class="form-group">
+                <label for="password-confirm">Confirm Password</label><br>
+                <input required type="text" name="password-confirm" class="form-control" #password="ngModel" ngModel [ngbTooltip]="tipContent" placement="bottom" triggers="manual" #t2="ngbTooltip" (blur)="displayToolTipBlur(t2, false, 'Invalid Password!', password)">
+            </div>
+
+            <pre></pre>
+            <pre></pre>
+            <pre></pre>
+        -->
+            <div *ngIf="password.valid && password.touched && username.valid && username.touched; else elseButton">
+                <button class="btn btn-primary" type="submit">Submit</button>
+            </div>
+            <ng-template #elseButton>
+                <button class="btn btn-primary" disabled type="submit">Submit</button>
+            </ng-template>
+        </form>
+    </div>
+</div>

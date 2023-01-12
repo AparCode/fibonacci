@@ -1,0 +1,128 @@
+@startuml Watch E-Store
+!theme plain
+interface ProductDAO
+class ProductFileDAO{
++Product getProduct(int: id)
++Product[] getProducts()
++Product[] findProducts(String: containsText)
++Product updateProduct(Product: watch)
++boolean deleteProduct(int: id)
++Product createProduct(Product: product)
++Product[] getInventory()
++boolean reserveProduct(int: id)
++boolean unreserveProduct(int: id)
+}
+
+interface ShoppingCartDAO
+class ShoppingCartFileDAO{
++ShoppingCart getShoppingCart(String: user)
++ShoppingCart addToCart(String: user, Product: product)
++ShoppingCart removeFromCart(String: user, Product: product)
++ShoppingCart reserve(String: user, Product: product)
++ShoppingCart unreserve(String: user)
+}
+
+interface UserDAO
+class UserFileDAO{
++User getUser(String: username)
++User[] getUsers()
++User updateUser(User: user)
++User createUser(User: user)
++boolean deleteUser(String: username)
+}
+
+class LoginController{
+-UserDAO: userDAO
+
++ResponseEntity<Status> authenticateUser(User: user)
++ResponseEntity<Status> registerUser(User: user)
++ResponseEntity<Status> changeUserInfo(User: user)
+}
+
+class ProductController{
+-ProductDAO: productDAO
+
++ResponseEntity<Product> getProduct(int: id)
++ResponseEntity<Product[]> getProducts()
++ResponseEntity<Product[]> searchProducts(String: name)
++ResponseEntity<Product> deleteProduct(int: id)
++ResponseEntity<Product> createProduct(Product: product)
++ResponseEntity<Product> updateProduct(Product: watch)
+}
+
+class ShoppingCartController{
+-ShoppingCartDAO shoppingCartDAO
+-ProductDAO productDAO
+
++ResponseEntity<ShoppingCart> getShoppingCart(String: user)
++ResponseEntity<ShoppingCart> addItemToCart(String: user, Product: product)
++ResponseEntity<ShoppingCart> reserveItem(String: user, Product: product)
++ResponseEntity<ShoppingCart> clearReserve(String: user)
++ResponseEntity<ShoppingCart> removeItemFromCart(String: user, Product: product)
++ResponseEntity<ShoppingCart> checkoutCart(String: user)
+}
+
+class Product{
+-id : int
+-String: name
+-String: brand
+-String: caseMaterial
+-double: caseDiameter
+-String: condition
+-double: cost
+-String: description
+-int: inventoryAmt
+-String: image
+
++int getId()
++void setName(String: name)
++String getName()
++String getBrand()
++String getCaseMaterial()
++double getCaseDiameter()
++String getCondition()
++void setCost(float: cost)
++double getCost()
++String getDescription()
++void setInventoryAmt(int: inventoryAmt)
++int getInventoryAmt()
++String getImage()
+}
+
+class ShoppingCart{
+-String: user
+-List<Product>: items
+-Product: reserved
+
++String getUser()
++List<Product> getItems()
++void addProduct(Product: product)
++boolean removeProduct(Product: product)
++Product getReservation()
++void reserveProduct(Product: product)
++void clearReserved()
+}
+
+class User{
+-String username
+-String password
+
++String getUsername()
++String getPassword()
++void setUsername(String: username)
++void setPassword(String: password)
++boolean checkPassword(String: password)
+}
+
+ShoppingCartController <|-- ShoppingCartDAO
+ShoppingCartController <|-- ProductDAO
+ProductController <|-- ProductDAO
+LoginController <|-- UserDAO
+ProductFileDAO <|-- "  many  " Product
+ShoppingCartFileDAO <|-- "   many   " Product
+ShoppingCartFileDAO <|-- "  many  " ShoppingCart
+UserDAO "  1  " <|.. UserFileDAO : Implements
+ShoppingCartDAO "  1  " <|.. ShoppingCartFileDAO : Implements
+ProductDAO "  1  " <|.. ProductFileDAO : Implements
+UserFileDAO <|-- "  many  " User
+@enduml

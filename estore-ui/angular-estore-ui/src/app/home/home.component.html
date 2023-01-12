@@ -1,0 +1,60 @@
+<ngb-carousel *ngIf="displayCaroursel">
+  <ng-template ngbSlide>
+    <a routerLink="/detail/{{products[0].id}}">
+      <div class="img-wrapper">
+        <img src="assets/images/{{products[0].image}}"/>
+      </div>
+      <div class="carousel-caption">
+        <h3>{{products[0].name}}</h3>
+      </div>
+    </a>
+  </ng-template>
+  <ng-template ngbSlide>
+    <a routerLink="/detail/{{products[1].id}}">
+      <div class="img-wrapper">
+        <img src="assets/images/{{products[1].image}}"/>
+        <!--<img [src]="products[1].image" alt="{{products[1].name}}" />-->
+      </div>
+      <div class="carousel-caption">
+        <h3>{{products[1].name}}</h3>
+      </div>
+    </a>
+  </ng-template>
+  <ng-template ngbSlide>
+    <a routerLink="/detail/{{products[2].id}}">
+      <div class="img-wrapper">
+        <img src="assets/images/{{products[2].image}}"/>
+        <!--<img [src]="products[2].image" alt="{{products[2].name}}" />-->
+      </div>
+      <div class="carousel-caption">
+        <h3>{{products[2].name}}</h3>
+      </div>
+    </a>
+  </ng-template>
+  <ng-template ngbSlide>
+    <a routerLink="/detail/{{products[3].id}}">
+      <div class="img-wrapper">
+        <img src="assets/images/{{products[3].image}}"/>
+        <!--<img [src]="products[3].image" alt="{{products[3].name}}" />-->
+      </div>
+      <div class="carousel-caption">
+        <h3>{{products[3].name}}</h3>
+      </div>
+    </a>
+  </ng-template>
+  <ng-template ngbSlide>
+    <a routerLink="/detail/{{products[4].id}}">
+      <div class="img-wrapper">
+        <img src="assets/images/{{products[4].image}}"/>
+        <!--<img [src]="products[4].image" alt="{{products[4].name}}" />-->
+      </div>
+      <div class="carousel-caption">
+        <h3>{{products[4].name}}</h3>
+      </div>
+    </a>
+  </ng-template>
+</ngb-carousel>
+<div class="search">
+  <h3>Search for Products:</h3>
+  <app-product-search></app-product-search>
+</div>

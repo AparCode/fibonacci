@@ -1,0 +1,60 @@
+/* Application-wide Styles */
+
+body {
+  background-color: #F5F5F5;
+}
+
+h1 {
+    color: #535257;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 250%;
+  }
+  h2, h3 {
+    color: #232428;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: lighter;
+  }
+  body {
+    margin: 0em;
+  }
+  body, input[type="text"], button {
+    color: #232428;
+    font-family: Cambria, Georgia, serif;
+  }
+  button {
+    background-color: #BBBDBC;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: black;
+    font-size: 1.2rem;
+    padding: 1rem;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+  }
+  button:hover {
+    background-color: #141416;
+    color: #22cd86;
+  }
+  button:disabled {
+    background-color: #535257;
+    color: #3d3e42;
+    cursor: auto;
+  }
+  
+  /* everywhere else */
+  * {
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  /* Custom Components */
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently
+                        supported by Chrome, Edge, Opera and Firefox */
+}
